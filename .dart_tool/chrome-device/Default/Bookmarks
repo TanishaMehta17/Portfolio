@@ -1,0 +1,64 @@
+{
+   "checksum": "f849906e9c36df7fe3175239b686be34",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13246094994953915",
+               "date_last_used": "0",
+               "guid": "8517ac9c-9591-457c-ab0d-69a405e54a2e",
+               "id": "7",
+               "name": "Acer",
+               "type": "url",
+               "url": "http://www.acer.com/"
+            }, {
+               "date_added": "13351507495519453",
+               "date_last_used": "0",
+               "guid": "65aa1408-355c-41f2-8a04-32cb123b1f6d",
+               "id": "8",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "ou mean by umbrell",
+               "type": "url",
+               "url": "edge://newtab/"
+            } ],
+            "date_added": "13316356097144093",
+            "date_last_used": "0",
+            "date_modified": "13351507495519453",
+            "guid": "63e4aa0f-59b7-42d0-812d-00283aa375d8",
+            "id": "6",
+            "name": "Acer",
+            "type": "folder"
+         } ],
+         "date_added": "13371224362489665",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13371224362489669",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13371224362489672",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
