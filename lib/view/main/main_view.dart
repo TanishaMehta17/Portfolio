@@ -12,7 +12,7 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    //  drawer: const CustomDrawer(),
+      //  drawer: const CustomDrawer(),
       body: Center(
         child: Column(
           children: [
@@ -27,11 +27,11 @@ class MainView extends StatelessWidget {
               height: 180,
               child: TopNavigationBar(),
             ),
-            if (Responsive.isLargeMobile(context))
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [NavigationButtonList()],
-              ),
+            //if (Responsive.isLargeMobile(context))
+              // const Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [NavigationButtonList()],
+              // ),
             Expanded(
               flex: 9,
               child: PageView(

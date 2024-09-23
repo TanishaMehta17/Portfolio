@@ -12,12 +12,12 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MainView(pages: [
-      const Introduction(),
-      ProjectsView(),
-      Certifications(),
-      Experience(),
-      ContactForm(),
+    return MainView(pages: [ const 
+       Introduction(),
+       ProjectsView(),
+       Certifications(),
+       Experience(),
+       ContactForm(),
     ]);
   }
 }

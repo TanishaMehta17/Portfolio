@@ -19,12 +19,12 @@ class NavigationTextButton extends StatelessWidget {
       child: ShaderMask(
         shaderCallback: (bounds) {
           return isActive
-              ? LinearGradient(
+              ? const LinearGradient(
                   colors: [Colors.pinkAccent, Colors.blue],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ).createShader(bounds)
-              : LinearGradient(
+              : const LinearGradient(
                   colors: [
                     Colors.white,
                     Colors.white
@@ -43,3 +43,4 @@ class NavigationTextButton extends StatelessWidget {
     );
   }
 }
+
