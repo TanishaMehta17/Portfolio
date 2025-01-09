@@ -1,11 +1,97 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
+// import '../../../res/constants.dart';
+// import '../../../view model/responsive.dart';
+
+// class AnimatedImageContainer extends StatefulWidget {
+//   const AnimatedImageContainer({Key? key, this.height = 300, this.width = 300})
+//       : super(key: key);
+//   final double? width;
+//   final double? height;
+
+//   @override
+//   AnimatedImageContainerState createState() => AnimatedImageContainerState();
+// }
+
+// class AnimatedImageContainerState extends State<AnimatedImageContainer>
+//     with SingleTickerProviderStateMixin {
+//   late AnimationController _controller;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _controller = AnimationController(
+//       vsync: this,
+//       duration: const Duration(milliseconds: 1000),
+//     )..repeat(reverse: true); // Repeat the animation loop
+//   }
+
+//   @override
+//   void dispose() {
+//     _controller.dispose();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return AnimatedBuilder(
+//       animation: _controller,
+//       builder: (context, child) {
+//         final value = _controller.value;
+//         return Transform.translate(
+//           offset: Offset(0, 2 * value), // Move the container up and down
+//           child: Container(
+//             height: widget.height!,
+//             width: widget.width!,
+//             padding: const EdgeInsets.all(defaultPadding / 3),
+//             decoration: BoxDecoration(
+//               shape: BoxShape.circle, // Make the container circular
+//               gradient: const LinearGradient(colors: [
+//                 Colors.pinkAccent,
+//                 Colors.blue,
+//               ]),
+//               boxShadow: const [
+//                 BoxShadow(
+//                   color: Colors.pink,
+//                   offset: Offset(-2, 0),
+//                   blurRadius: 20,
+//                 ),
+//                 BoxShadow(
+//                   color: Colors.blue,
+//                   offset: Offset(2, 0),
+//                   blurRadius: 20,
+//                 ),
+//               ],
+//             ),
+//             child: ClipOval(
+//               // Clip the image to fit within the circular container
+//               child: Image.asset(
+//                 'assets/images/profile_pic.png',
+//                 height: Responsive.isLargeMobile(context)
+//                     ? MediaQuery.sizeOf(context).width * 0.2
+//                     : Responsive.isTablet(context)
+//                         ? MediaQuery.sizeOf(context).width * 0.14
+//                         : 200,
+//                 width: Responsive.isLargeMobile(context)
+//                     ? MediaQuery.sizeOf(context).width * 0.2
+//                     : Responsive.isTablet(context)
+//                         ? MediaQuery.sizeOf(context).width * 0.14
+//                         : 200,
+//                 fit: BoxFit.cover,
+//               ),
+//             ),
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
+import 'package:flutter/material.dart';
 import '../../../res/constants.dart';
 import '../../../view model/responsive.dart';
 
 class AnimatedImageContainer extends StatefulWidget {
-  const AnimatedImageContainer({Key? key, this.height = 300, this.width = 300})
-      : super(key: key);
+  const AnimatedImageContainer({Key? key, this.height = 300, this.width = 300}) : super(key: key);
   final double? width;
   final double? height;
 
@@ -13,8 +99,7 @@ class AnimatedImageContainer extends StatefulWidget {
   AnimatedImageContainerState createState() => AnimatedImageContainerState();
 }
 
-class AnimatedImageContainerState extends State<AnimatedImageContainer>
-    with SingleTickerProviderStateMixin {
+class AnimatedImageContainerState extends State<AnimatedImageContainer> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -34,6 +119,13 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
 
   @override
   Widget build(BuildContext context) {
+    // Calculate the responsive size for the image container
+    final double responsiveSize = Responsive.isMobile(context)
+        ? MediaQuery.of(context).size.width * 0.35 // Smaller size for mobile screens
+        : Responsive.isTablet(context)
+            ? MediaQuery.of(context).size.width * 0.25 // Larger for tablets
+            : MediaQuery.of(context).size.width * 0.2; // Standard size for desktops/laptops
+
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, child) {
@@ -41,8 +133,8 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
         return Transform.translate(
           offset: Offset(0, 2 * value), // Move the container up and down
           child: Container(
-            height: widget.height!,
-            width: widget.width!,
+            height: responsiveSize, // Responsive height
+            width: responsiveSize,  // Responsive width
             padding: const EdgeInsets.all(defaultPadding / 3),
             decoration: BoxDecoration(
               shape: BoxShape.circle, // Make the container circular
@@ -67,17 +159,9 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
               // Clip the image to fit within the circular container
               child: Image.asset(
                 'assets/images/profile_pic.png',
-                height: Responsive.isLargeMobile(context)
-                    ? MediaQuery.sizeOf(context).width * 0.2
-                    : Responsive.isTablet(context)
-                        ? MediaQuery.sizeOf(context).width * 0.14
-                        : 200,
-                width: Responsive.isLargeMobile(context)
-                    ? MediaQuery.sizeOf(context).width * 0.2
-                    : Responsive.isTablet(context)
-                        ? MediaQuery.sizeOf(context).width * 0.14
-                        : 200,
-                fit: BoxFit.cover,
+                height: responsiveSize, // Responsive height for the image
+                width: responsiveSize,  // Responsive width for the image
+                fit: BoxFit.cover, // Ensure the image fits within the circular container
               ),
             ),
           ),

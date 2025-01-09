@@ -9,38 +9,45 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 class MainView extends StatelessWidget {
   const MainView({super.key, required this.pages});
   final List<Widget> pages;
+
   @override
   Widget build(BuildContext context) {
+    // Check if the view is mobile
+    final isMobile = Responsive.isMobile(context);
+
+    // Conditionally create the PageController
+    final PageController? pageController = !isMobile ? controller : null;
+
     return Scaffold(
-      //  drawer: const CustomDrawer(),
       body: Center(
         child: Column(
           children: [
-            kIsWeb && !Responsive.isLargeMobile(context)
-                ? const SizedBox(
-                    height: defaultPadding * 2,
-                  )
-                : const SizedBox(
-                    height: defaultPadding / 2,
-                  ),
-            const SizedBox(
-              height: 180,
-              child: TopNavigationBar(),
-            ),
-            //if (Responsive.isLargeMobile(context))
-              // const Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [NavigationButtonList()],
-              // ),
+            kIsWeb && !isMobile
+                ? const SizedBox(height: defaultPadding * 2)
+                : const SizedBox(height: defaultPadding / 2),
+
+            // Navigation Bar visible on Desktop
+            if (!isMobile) // Show navigation bar only on non-mobile views
+              const SizedBox(
+                height: 180,
+                child: TopNavigationBar(),
+              ),
+
             Expanded(
               flex: 9,
               child: PageView(
                 scrollDirection: Axis.vertical,
-                physics: const NeverScrollableScrollPhysics(),
-                controller: controller,
+
+                // // Adjust scroll physics based on screen size
+                // physics: isMobile
+                //     ? const AlwaysScrollableScrollPhysics() // Allow scrolling on mobile
+                //     : const AlwaysScrollableScrollPhysics(), // Disable scrolling on desktop
+
+                controller:
+                    pageController, // Use the controller only if it's not a mobile view
                 children: [...pages],
               ),
-            )
+            ),
           ],
         ),
       ),

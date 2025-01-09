@@ -23,7 +23,7 @@ class ExperienceGrid extends StatelessWidget {
             width: 00,
             duration: const Duration(milliseconds: 200),
             margin: const EdgeInsets.symmetric(
-                vertical: 0, horizontal: defaultPadding),
+                vertical: defaultPadding, horizontal: defaultPadding),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 gradient: const LinearGradient(colors: [

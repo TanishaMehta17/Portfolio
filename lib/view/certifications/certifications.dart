@@ -38,10 +38,3 @@ class Certifications extends StatelessWidget {
 
 
 
-
-
-
-
-
-
-

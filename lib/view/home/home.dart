@@ -3,6 +3,7 @@ import 'package:flutter_portfolio/experience/experience.dart';
 import 'package:flutter_portfolio/experience/experience_grid.dart';
 import 'package:flutter_portfolio/view/certifications/certifications.dart';
 import 'package:flutter_portfolio/view/contact/contact.dart';
+import 'package:flutter_portfolio/view/contact/contact_view.dart';
 import 'package:flutter_portfolio/view/intro/introduction.dart';
 import 'package:flutter_portfolio/view/main/main_view.dart';
 import 'package:flutter_portfolio/view/projects/project_view.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatelessWidget {
        ProjectsView(),
        Certifications(),
        Experience(),
-       ContactForm(),
+       ContactView(),
     ]);
   }
 }
